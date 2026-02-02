@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Happy Birthday Juli 🎉</title>
+
+  <!-- Tailwind CSS -->
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <!-- Confetti -->
+  <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
+
+  <style>
+    body {
+      background: linear-gradient(135deg, #ff9a9e, #fad0c4);
+    }
+  </style>
+</head>
+
+<body class="min-h-screen flex items-center justify-center px-4">
+
+  <!-- 🎵 Janam Janam Instrumental -->
+  <audio id="bgMusic" loop>
+    <source src="janam-janam-instrumental.mp3" type="audio/mpeg">
+    Your browser does not support audio.
+  </audio>
+
+  <div class="bg-white shadow-2xl rounded-2xl p-6 sm:p-8 max-w-md w-full text-center">
+
+    <h1 class="text-3xl sm:text-4xl font-extrabold text-pink-500 mb-4">
+      🎂 Happy Birthday Juli 🎂
+    </h1>
+
+    <p class="text-base sm:text-lg text-gray-700 mb-6">
+      Happy Birthday Juli 💖  
+      May your life be filled with love, peace, and beautiful memories.
+      Stay happy, stay blessed — always ✨
+    </p>
+
+    <div class="text-5xl sm:text-6xl mb-6">🎉🎈🎁</div>
+
+    <p class="text-gray-600 italic text-sm sm:text-base">
+      "Janam janam saath chalna ho — yahi dua hai."
+    </p>
+
+    <button onclick="celebrate()" class="mt-6 px-6 py-3 bg-pink-500 text-white rounded-xl shadow hover:bg-pink-600 transition w-full sm:w-auto">
+      Click for a Surprise 🎊
+    </button>
+
+    <p id="surprise" class="mt-4 text-lg sm:text-xl font-semibold text-purple-600 hidden">
+      Juli, you are truly special 💕  
+      Happy Birthday 🎂✨
+    </p>
+  </div>
+
+  <script>
+    function celebrate() {
+      // show message
+      document.getElementById('surprise').classList.remove('hidden');
+
+      // play music
+      const music = document.getElementById('bgMusic');
+      music.volume = 0.5;
+      music.play();
+
+      // confetti
+      confetti({
+        particleCount: 180,
+        spread: 80,
+        origin: { y: 0.6 }
+      });
+
+      setTimeout(() => {
+        confetti({ particleCount: 120, spread: 120, origin: { x: 0.1 } });
+        confetti({ particleCount: 120, spread: 120, origin: { x: 0.9 } });
+      }, 300);
+    }
+  </script>
+
+</body>
+</html>
